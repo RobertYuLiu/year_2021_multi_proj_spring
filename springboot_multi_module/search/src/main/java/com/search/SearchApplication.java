@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.common.Product;
 import com.common.ProductService;
 
+import javaApp1.App1;
+import javaApp2.App2;
+
 @RestController
 @SpringBootApplication(scanBasePackages = {"com", "hello"})
 @RequestMapping("/search")
@@ -26,7 +29,10 @@ public class SearchApplication {
     @RequestMapping("/hello")
     @GetMapping
     public String hello() {
-        return "Search: Hello";
+    	App1 app1 = new App1();
+    	App2 app2 = new App2();
+    	
+        return "Search: Hello" + app1.getGreeting() + ",..." + app2.getGreeting();
     }
 
     /*
